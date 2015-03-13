@@ -10,7 +10,6 @@
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
@@ -177,20 +176,78 @@ Para cambiar las propiedades del transistor hacemos \textbf{Ctrl-I} y cambiamos 
 \begin{frame}
 \frametitle{Conectar y crear puertos}
 Ahora vamos a crear puertos y exportarlos para ejemplificar el uso del simulador y una convención para los nombres.
+\vspace{0.5cm}
 \begin{columns}[t]
 \column{.4\textwidth}
 Conectamos el drenador haciendo click izquierdo sobre el mismo y luego hacemos click derecho sobre otro lado para conectar:
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{figuras/edicionElectric-4.png}
+\includegraphics[width=0.45\linewidth]{figuras/edicionElectric-4.png}
 \end{figure}
 \column{.4\textwidth}
 Nombramos el cable haciendo click izquierdo exactamente en el centro del mismo y luego \textbf{Ctrl-I} para cambiarle el nombre:
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{figuras/edicionElectric-4b.png}
+\includegraphics[width=0.45\linewidth]{figuras/edicionElectric-4b.png}
 \end{figure}
 \end{columns}
 \end{frame}
-%%%%------------------------------------------------
+%------------------------------------------------
+\begin{frame}
+\frametitle{Conectar y crear puertos}
+%Ahora vamos a crear puertos y exportarlos para ejemplificar el uso del simulador y una convención para los nombres.
+%\vspace{0.5cm}
+\begin{columns}[t]
+\column{.45\textwidth}
+Nombramos todos los puertos del transistor de la siguiente forma:
+\begin{figure}
+  \includegraphics[width=0.75\linewidth]{figuras/edicionElectric-4c.png}\label{fig:nmosMin}
+\end{figure}
+\column{.4\textwidth}
+Ahora vamos a crear los puertos de esta celda, instanciamos un elemento llamado \textbf{off-page} como muestra la figura:
+\begin{figure}
+\includegraphics[width=1.25\linewidth]{figuras/edicionElectric-4d.png}
+\end{figure}
+\end{columns}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Conectar y crear puertos}
+\begin{columns}[t]
+\column{.45\textwidth}
+Creamos el puerto haciendo un click izquierdo sobre el elemento \textbf{off-page} y presionamos \textbf{Ctrl-E} para exportar este puerto y darle un nombre. Además conectamos un cable y le damos el mismo nombre que el del drenador del transistor:
+\begin{figure}
+  \includegraphics[width=0.90\linewidth]{figuras/edicionElectric-4e.png}
+\end{figure}
+\column{.4\textwidth}
+Lo mismo hacemos para los otros puertos, como mostramos en la siguiente figura:
+\begin{figure}
+\includegraphics[width=1.25\linewidth]{figuras/edicionElectric-4f.png}
+\end{figure}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Detectar errores de conexión}
+Si presionamos \textbf{F5} durante la edición, nos realizará un chequeo de errores, que pueden ser detallados presionando \textbf{Shift $+<$} o \textbf{Shift $+>$}. Damos dos ejemplos típicos:
+\begin{columns}[t]
+\column{.45\textwidth}
+\textbf{Cables desconectados}
+\begin{figure}
+  \includegraphics[width=1.0\linewidth]{figuras/edicionElectric-4g.png}
+\end{figure}
+\scriptsize{Este error aparece cuando un cable no tiene conexión o nombre.} 
+\textbf{Pin innecesario}
+\framezoom<1><2>[border](2.79cm,2.95cm)(1.5cm,1.5cm)
+\framezoom<1><3>[border](8.09cm,2.75cm)(1.5cm,1.5cm)
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{figuras/edicionElectric-4h.png} 
+\end{figure}
+\scriptsize{Este error se produce cuando hacemos un cable sobre la misma línea recta en dos tramos, es decir, presionando dos veces el click derecho para realizar un cable recto.} 
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
 \begin{frame}
 \subsection{Layout}
 \frametitle{Creación del layout}
