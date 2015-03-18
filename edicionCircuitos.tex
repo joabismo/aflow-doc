@@ -237,8 +237,9 @@ Si presionamos \textbf{F5} durante la edición, nos realizará un chequeo de err
   \includegraphics[width=1.0\linewidth]{figuras/edicionElectric-4g.png}
 \end{figure}
 \scriptsize{Este error aparece cuando un cable no tiene conexión o nombre.} 
+\column{.45\textwidth}
 \textbf{Pin innecesario}
-\framezoom<1><2>[border](2.79cm,2.95cm)(1.5cm,1.5cm)
+\framezoom<1><2>[border](2.59cm,2.95cm)(1.5cm,1.5cm)
 \framezoom<1><3>[border](8.09cm,2.75cm)(1.5cm,1.5cm)
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{figuras/edicionElectric-4h.png} 
@@ -249,10 +250,142 @@ Si presionamos \textbf{F5} durante la edición, nos realizará un chequeo de err
 
 %------------------------------------------------
 \begin{frame}
+\frametitle{Corrección de errores}
+Para corregir el error de pines extra:
+
+\textbf{Edit $\rightarrow$ Cleanup cell $\rightarrow$ Cleanup Pin}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Crear un ícono}
+Luego de finalizar con el diseño esquemático, queremos tener un ícono para ser instanciado en otros esquemáticos:
+
+
+\textbf{View $\rightarrow$ Make Icon View}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{figuras/edicionElectric-5.png} 
+\end{figure}
+
+\end{frame}
+%%----------------------------------------------
+\begin{frame}
+\frametitle{Editar el ícono}
+Para editar este ícono hacemos:
+\textbf{View $\rightarrow$ Edit Icon View}
+
+Seleccionamos el rectángulo y con \textbf{Ctrl-i} le ajustamos el valor de X para que sea cuadrado. Además movemos los puertos del ícono para separarlos y centrarlos:
+
+\begin{figure}
+\includegraphics[width=0.99\linewidth]{figuras/edicionElectric-5b.png} 
+\end{figure}
+
+\end{frame}
+%--------------------------------------------------
+\begin{frame}
 \subsection{Layout}
 \frametitle{Creación del layout}
+Para realizar la versión en \textit{\textbf{layout}} de esta celda, hacemos:
+
+\textbf{View $\rightarrow$ Edit Layout View}
+\begin{figure}
+  \includegraphics[width=0.50\linewidth]{figuras/edicionElectric-6.png}
+\end{figure}
+Y elegimos crear una celda vacía de layout.
 \end{frame}
 %------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Instanciar elementos}
+\begin{columns}[c]
+\column{.4\textwidth}
+Vamos a instanciar un transistor tipo n (\textbf{nMos}), los contactos a Metal1 (\textbf{nAct}) para este transistor, y el contacto a bulk necesario (\textbf{pWell}). Esos elementos los encontramos en la pestaña de \textbf{Components}, como lo señalamos en la figura:
+\column{.4\textwidth}
+\begin{figure}
+  \includegraphics[width=0.69\linewidth]{figuras/edicionElectric-6bbb.png}
+\end{figure}
+\end{columns}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Instanciar elementos}
+\begin{figure}
+  \includegraphics[width=1.00\linewidth]{figuras/edicionElectric-7.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Instanciar elementos}
+\begin{columns}[c]
+\column{.4\textwidth}
+Vamos a instanciar un transistor tipo n (nMos), los contactos a M1 para este transistor, y el contacto a bulk necesario (pWell). Esos elementos los encontramos en la pestaña de \textbf{Components}, como lo señalamos en la figura:
+\column{.4\textwidth}
+\begin{figure}
+  \includegraphics[width=0.69\linewidth]{figuras/edicionElectric-6bbb.png}
+\end{figure}
+\end{columns}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contactos a Metal 1}
+Haciendo click izquierdo al contacto y arrastrando hacia la derecha para acercarlo al transistor, vemos una leyenda que nos dá información sobre la regla de DRC.
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8.png}
+\end{figure}
+%\scriptsize{
+%}
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contactos a Metal 1}
+%\scriptsize{
+Lo acercamos tanto como se pueda, hasta que nos indique que no cumple una regla de DRC:
+%}
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8bb.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contactos a Metal 1}
+%\scriptsize{
+Asi queda bien conectado:
+%}
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8bbb.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contactos a Metal 1}
+%\scriptsize{
+Hacemos lo mismo con el otro terminal:
+%}
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8bbbb.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contactos a bulk}
+%\scriptsize{
+De igual forma conectamos el bulk al source:
+%}
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8bbbb.png}
+\end{figure}
+\end{frame}
+%%%------------------------------------------------
 \begin{frame}
 \subsection{Layout Vs. Esquemático}
 \frametitle{Verificación de equivalencia entre el esquemático y el layout (LVS)}
