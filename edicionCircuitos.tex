@@ -317,19 +317,19 @@ Vamos a instanciar un transistor tipo n (\textbf{nMos}), los contactos a Metal1 
 \end{figure}
 \end{frame}
 %------------------------------------------------
-\begin{frame}
-\subsection{Layout}
-\frametitle{Creación del layout - Instanciar elementos}
-\begin{columns}[c]
-\column{.4\textwidth}
-Vamos a instanciar un transistor tipo n (nMos), los contactos a M1 para este transistor, y el contacto a bulk necesario (pWell). Esos elementos los encontramos en la pestaña de \textbf{Components}, como lo señalamos en la figura:
-\column{.4\textwidth}
-\begin{figure}
-  \includegraphics[width=0.69\linewidth]{figuras/edicionElectric-6bbb.png}
-\end{figure}
-\end{columns}
-\end{frame}
-%------------------------------------------------
+%\begin{frame}
+%\subsection{Layout}
+%\frametitle{Creación del layout - Instanciar elementos}
+%\begin{columns}[c]
+%\column{.4\textwidth}
+%Vamos a instanciar un transistor tipo n (nMos), los contactos a M1 para este transistor, y el contacto a bulk necesario (pWell). Esos elementos los encontramos en la pestaña de \textbf{Components}, como lo señalamos en la figura:
+%\column{.4\textwidth}
+%\begin{figure}
+%  \includegraphics[width=0.69\linewidth]{figuras/edicionElectric-6bbb.png}
+%\end{figure}
+%\end{columns}
+%\end{frame}
+%%------------------------------------------------
 \begin{frame}
 \subsection{Layout}
 \frametitle{Creación del layout - Contactos a Metal 1}
@@ -379,16 +379,65 @@ Hacemos lo mismo con el otro terminal:
 \subsection{Layout}
 \frametitle{Creación del layout - Contactos a bulk}
 %\scriptsize{
-De igual forma conectamos el bulk al source:
+De igual forma conectamos el bulk\footnote{Modificamos el valor de X al contacto a bulk para que sea más grande} al source (siempre presionando \textbf{F5} para chequear DRC):
 %}
+\begin{columns}
+  \column{.54\textwidth}
 \begin{figure}
-  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-8bbbb.png}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-9.png}
+\end{figure}
+\column{.54\textwidth}
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-9a.png}
+\end{figure}
+
+\end{columns}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}{Conexión simbólica del \emph{body} del transistor}
+  Seleccionar \emph{Toggle Special Select}, hacer click izquierdo sobre el transistor y luego click derecho sobre los contactos a bulk\footnote{Para mas explicaciones ver \textbf{Body Checking Section} (Capítulo 9 del manual de \href{http://staticfreesoft.com/jmanual/ElectricManual-9.05.pdf}{Electric})}.
+\begin{figure}
+\includegraphics[width=0.51\linewidth]{figuras/edicionElectric-9b.png}
 \end{figure}
 \end{frame}
+
 %%%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Contacto a poly}
+Instanciamos un contacto a poly y lo conectamos al gate: 
+\begin{figure}
+  \includegraphics[width=0.89\linewidth]{figuras/edicionElectric-10.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Puertos}
+Creamos los puertos con los mismos nombres que en el esquemático, seleccionamos primero el lugar donde queremos crear el puerto, y luego presionamos \textbf{Ctrl-e}:
+\begin{figure}
+  \includegraphics[width=0.59\linewidth]{figuras/edicionElectric-11.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\subsection{Layout}
+\frametitle{Creación del layout - Puertos}
+De la misma forma creamos el puerto para \textbf{Vd} y \textbf{AVSS}:
+\begin{figure}
+  \includegraphics[width=0.51\linewidth]{figuras/edicionElectric-11a.png}
+\end{figure}
+\end{frame}
+%------------------------------------------------
 \begin{frame}
 \subsection{Layout Vs. Esquemático}
 \frametitle{Verificación de equivalencia entre el esquemático y el layout (LVS)}
+\scriptsize{Primero configuramos correctamente la herramienta para que el LVS se haga correctamente. Vamos a \textbf{File $\rightarrow$ Preferences $\rightarrow$ NCC} y nos aseguramos seleccionar donde dice \textbf{Check transistor sizes} y en \textbf{Check transistor body connections}, como mostramos en la figura:
+}
+\begin{figure}
+  \includegraphics[width=0.75\linewidth]{figuras/edicionElectric-12.png}
+\end{figure}
 \end{frame}
 %------------------------------------------------
 \subsection{DRC}
