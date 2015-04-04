@@ -297,7 +297,6 @@ Y elegimos crear una celda vacía de layout.
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Instanciar elementos}
 \begin{columns}[c]
 \column{.4\textwidth}
@@ -310,7 +309,6 @@ Vamos a instanciar un transistor tipo n (\textbf{nMos}), los contactos a Metal1 
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Instanciar elementos}
 \begin{figure}
   \includegraphics[width=1.00\linewidth]{figuras/edicionElectric-7.png}
@@ -318,7 +316,6 @@ Vamos a instanciar un transistor tipo n (\textbf{nMos}), los contactos a Metal1 
 \end{frame}
 %------------------------------------------------
 %\begin{frame}
-%\subsection{Layout}
 %\frametitle{Creación del layout - Instanciar elementos}
 %\begin{columns}[c]
 %\column{.4\textwidth}
@@ -331,7 +328,6 @@ Vamos a instanciar un transistor tipo n (\textbf{nMos}), los contactos a Metal1 
 %\end{frame}
 %%------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contactos a Metal 1}
 Haciendo click izquierdo al contacto y arrastrando hacia la derecha para acercarlo al transistor, vemos una leyenda que nos dá información sobre la regla de DRC.
 \begin{figure}
@@ -343,7 +339,6 @@ Haciendo click izquierdo al contacto y arrastrando hacia la derecha para acercar
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contactos a Metal 1}
 %\scriptsize{
 Lo acercamos tanto como se pueda, hasta que nos indique que no cumple una regla de DRC:
@@ -354,7 +349,6 @@ Lo acercamos tanto como se pueda, hasta que nos indique que no cumple una regla 
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contactos a Metal 1}
 %\scriptsize{
 Asi queda bien conectado:
@@ -365,7 +359,6 @@ Asi queda bien conectado:
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contactos a Metal 1}
 %\scriptsize{
 Hacemos lo mismo con el otro terminal:
@@ -376,7 +369,6 @@ Hacemos lo mismo con el otro terminal:
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contactos a bulk}
 %\scriptsize{
 De igual forma conectamos el bulk\footnote{Modificamos el valor de X al contacto a bulk para que sea más grande} al source (siempre presionando \textbf{F5} para chequear DRC):
@@ -404,7 +396,6 @@ De igual forma conectamos el bulk\footnote{Modificamos el valor de X al contacto
 
 %%%------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Contacto a poly}
 Instanciamos un contacto a poly y lo conectamos al gate: 
 \begin{figure}
@@ -413,7 +404,6 @@ Instanciamos un contacto a poly y lo conectamos al gate:
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Puertos}
 Creamos los puertos con los mismos nombres que en el esquemático, seleccionamos primero el lugar donde queremos crear el puerto, y luego presionamos \textbf{Ctrl-e}:
 \begin{figure}
@@ -422,7 +412,6 @@ Creamos los puertos con los mismos nombres que en el esquemático, seleccionamos
 \end{frame}
 %------------------------------------------------
 \begin{frame}
-\subsection{Layout}
 \frametitle{Creación del layout - Puertos}
 De la misma forma creamos el puerto para \textbf{Vd} y \textbf{AVSS}:
 \begin{figure}
@@ -430,8 +419,18 @@ De la misma forma creamos el puerto para \textbf{Vd} y \textbf{AVSS}:
 \end{figure}
 \end{frame}
 %------------------------------------------------
+\subsection{DRC}
 \begin{frame}
-\subsection{Layout Vs. Esquemático}
+\frametitle{Comprobación de errores de DRC}
+Durante la edición del \emph{layout}, es necesario asegurarnos que no haya violacioes a las reglas de diseño, para eso presionamos \textbf{F5} y correjimos los errores a cada paso.
+\end{frame}
+%------------------------------------------------
+\subsection{LVS}
+\begin{frame}{Chequéo errores de LVS}
+  \textbf{Electric} cuenta con una herramienta llamada \textbf{NCC} (\emph{Network Consistency Check} que nos permite realizar una verificación de equivalencia entre el esquemático y el \emph{layout} de la misma celda. También sirve para hacer equivalencia entre esquemáticos, entre \emph{layouts}, y otras vistas de la misma celda.
+\end{frame}
+%------------------------------------------------
+\begin{frame}
 \frametitle{Verificación de equivalencia entre el esquemático y el layout (LVS)}
 \scriptsize{Primero configuramos correctamente la herramienta para que el LVS se haga correctamente. Vamos a \textbf{File $\rightarrow$ Preferences $\rightarrow$ NCC} y nos aseguramos seleccionar donde dice \textbf{Check transistor sizes} y en \textbf{Check transistor body connections}, como mostramos en la figura:
 }
@@ -440,14 +439,37 @@ De la misma forma creamos el puerto para \textbf{Vd} y \textbf{AVSS}:
 \end{figure}
 \end{frame}
 %------------------------------------------------
-\subsection{DRC}
-\begin{frame}
-\frametitle{Comprobación de errores de DRC}
+\begin{frame}{Realizar el LVS}
+  \begin{figure}
+    \includegraphics[width=1.10\linewidth]{figuras/edicionElectric-9c.png}
+  \end{figure}
 \end{frame}
-%------------------------------------------------
+%-----------------------------------------------------------------------
+\begin{frame}[fragile]{Mensaje de LVS correcto}
+  Si el esquemático y el \emph{layout} son equivalentes, el mensaje será:
+  \begin{tiny}
+  \begin{verbatim}
+  =================================6=================================
+  Hierarchical NCC every cell in the design: cell 'nmosMin{sch}'  cell 'nmosMin{lay}'
+  Comparing: analog:nmosMin{sch} with: analog:nmosMin{lay}
+    exports match, topologies match, sizes match in 0.004 seconds.
+    Summary for all cells: exports match, topologies match, sizes match
+    NCC command completed in: 0.006 seconds.
+  \end{verbatim}
+\end{tiny}
+\end{frame}
+%-----------------------------------------------------------------------
 \subsection{Extracción de los parásitos}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Extracción de los parásitos del layout}
+Realizamos ahora una extracción del circuito representado por el \emph{layout} y crear un \emph{netlist} SPICE, que incluya los elementos parásitos representados por los contactos, vías y metales utilizados para realizar las interconexiones.
+
+\textbf{
+Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
+}
+
+Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos una carpeta llamada \verb.sim. y le ponemos el nombre \verb(nmosMin_lay.spi(.
+
 \end{frame}
 %------------------------------------------------
 \section{Simulaciones}
