@@ -462,14 +462,29 @@ Durante la edición del \emph{layout}, es necesario asegurarnos que no haya viol
 \subsection{Extracción de los parásitos}
 \begin{frame}[fragile]
 \frametitle{Extracción de los parásitos del layout}
-Realizamos ahora una extracción del circuito representado por el \emph{layout} y crear un \emph{netlist} SPICE, que incluya los elementos parásitos representados por los contactos, vías y metales utilizados para realizar las interconexiones.
+Realizamos ahora una extracción del circuito representado por el \emph{layout} para crear un \emph{netlist} SPICE, que incluya los elementos parásitos representados por los contactos, vías y metales utilizados para realizar las interconexiones.
 
+\begin{exampleblock}{Extracción de parásitos}
 \textbf{
 Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
 }
+\end{exampleblock}
+
 
 Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos una carpeta llamada \verb.sim. y le ponemos el nombre \verb(nmosMin_lay.spi(.
 
+\end{frame}
+%------------------------------------------------
+\section{Simulaciones}
+%\subsection{Esquemático y Layout}
+\begin{frame}[fragile]
+  \frametitle{Simulación del \emph{Layout}}
+  Creamos una nueva celda de \emph{layout} llamada \verb.nmosMin_tb. donde instanciamos nuestro transistor y escribimos nuestro primer testbench de simulación.
+  \begin{exampleblock}{Instanciar una celda de \emph{layout}}
+\textbf{
+Components $\rightarrow$ Cell $\rightarrow$ nmosMin\{lay\}} (y ubicarla en el plano)
+
+  \end{exampleblock}
 \end{frame}
 %------------------------------------------------
 \section{Simulaciones}
