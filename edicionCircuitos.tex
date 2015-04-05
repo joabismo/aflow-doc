@@ -473,6 +473,13 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
 
 Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos una carpeta llamada \verb.sim. y le ponemos el nombre \verb(nmosMin_lay.spi(.
 
+\begin{exampleblock}{Netlist SPICE para simulación}
+\textbf{
+Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
+}
+\end{exampleblock}
+
+
 \end{frame}
 %------------------------------------------------
 \section{Simulaciones}
@@ -483,8 +490,10 @@ Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos
   \begin{exampleblock}{Instanciar una celda de \emph{layout}}
 \textbf{
 Components $\rightarrow$ Cell $\rightarrow$ nmosMin\{lay\}} (y ubicarla en el plano)
-
   \end{exampleblock}
+
+  Exportamos los tres puertos con los nombre Vg, Vd y vss, y luego creamos el netlist para simulación:
+
 \end{frame}
 %------------------------------------------------
 \section{Simulaciones}
@@ -495,7 +504,11 @@ Components $\rightarrow$ Cell $\rightarrow$ nmosMin\{lay\}} (y ubicarla en el pl
 %------------------------------------------------
 \subsection{Caracterización de los transistores}
 \begin{frame}
-\frametitle{Caracterización de los transistores de canal N y P por medio de simulación (familia de curvas de Id/Vds)}
+  \frametitle{Caracterización de los transistores de canal N y P por medio de simulación (familia de curvas de Id/Vds)}
+  \begin{figure}
+  \includegraphics[width=0.95\linewidth]{figuras/nmosMin-IDS-VDS.pdf}
+  \end{figure}
+
 \end{frame}
 %------------------------------------------------
 \subsection{Simulaciones de punto de operación}
