@@ -82,6 +82,14 @@
 \usepackage{hyperref}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
+\lstset{%                       % Configuración de parámetros de listing.
+  basicstyle=\small\ttfamily,     % Códigos con fuente TrueType.
+  breaklines=true,                % Rompe líneas demasiado largas.
+  xrightmargin=1cm,               % Margen derecho.
+  escapeinside=wz,                % Para escapar a LaTeX.
+}%
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -497,22 +505,7 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
   \frametitle{Simulación del \emph{Layout} - Creación de un testbench}
   Creamos el archivo \verb_simulacion.gnucap_ con el siguiente contenido:
   \begin{tiny}
-  \begin{verbatim}
-**** Comandos para realizar la simulación
-
-* Cargo las fuentes de alimentación y exitación:
-get fuentes.spi
-
-* Cargo el netlist del circuito extraído 
-.include nmosMin_tb.spi
-
-* Opciones para las señales que quiero ver: 
-print dc V(Vd) V(Vg) I(VVDC_vdd)
-
-* Realizo el análisis DC y guardo las señales especificadas con *print* 
-* en un archivo llamado "simulacion.out"
-dc VVDC_vdd 0 3.3 0.05 VVDC_vin 0.00 3.3 0.66 > simulacion.out
-\end{verbatim}
+    \lstinputlisting{gnucap/simulacion.gnucap}
 \end{tiny}
 \href{run:gnucap/simulacion.gnucap}{Descargar el testbench}. Descargar el archivo \href{run:gnucap/fuentes.spi}{fuentes.spi}. 
 \end{frame}
