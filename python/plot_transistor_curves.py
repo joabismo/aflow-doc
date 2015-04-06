@@ -18,8 +18,8 @@ data = genfromtxt(filename_str, skip_header=0,unpack=True)
 #######################################
 Vds = data[0]
 Vgs = data[2]
-Id = iter(data[3])	# Aca estan todas las corrientes de todos los Vg 
-			# uso 'iter' para poder ir sacando de a uno los valores con Id.next() 
+Id = iter(data[3])	# Aca estan las corrientes de todos los Vg 
+			# uso 'iter' para ir sacando de a uno los valores con Id.next() 
 
 
 
