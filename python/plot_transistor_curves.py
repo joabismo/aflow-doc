@@ -11,6 +11,15 @@ data = genfromtxt(filename_str, skip_header=0,unpack=True)
 # http://matplotlib.sourceforge.net/api/figure_api.html#module-matplotlib.figure 
 # Para ver ejemplos de qué se puede graficar: http://matplotlib.org/gallery.html
 
+#######################################
+#
+# Sección de configuración:
+#
+#######################################
+Vds = data[0]
+Vgs = data[2]
+Id = iter(data[3])	# Aca estan todas las corrientes de todos los Vg 
+			# uso 'iter' para poder ir sacando de a uno los valores con Id.next() 
 
 
 
@@ -18,27 +27,25 @@ data = genfromtxt(filename_str, skip_header=0,unpack=True)
 # Creo una lista con las señales de Id, una lista por cada Vg
 ###########################
 
-Id = iter(data[3])	# Aca estan todas las corrientes de todos los Vg 
-			# uso 'iter' para poder ir sacando de a uno los valores con Id.next() 
-algo = [[]]	# Inicializo una lista de listas, vacia
+valores = [[]]	# Inicializo una lista de listas, vacia
 curva=0		# Indice que hace referencia un valor de Vg
-oldVal = data[2][0]	# Valor que comparo para saber si estoy en la misma curva del Vg
+oldVal = Vgs[0]	# Valor que comparo para saber si estoy en la misma curva del Vg
 Vg = [oldVal]	# Lista donde guardo los distintos valores de Vg utilizados
 
-for x in data[2]:
+for x in Vgs:
 	if(x != oldVal):
 		curva=curva+1	# Si el Vg es distinto, nuevo índice de curva
-		algo.append([])	# y creo una lista vacía para el nuevo Id
+		valores.append([])	# y creo una lista vacía para el nuevo Id
 		Vg.append(x)	# Agrego nuevo valor de Vg
 	oldVal = x
-	algo[curva].append(Id.next())
+	valores[curva].append(Id.next())
 
 ####
 # Graficamos todas las curvas, una por cada Vg
 ####
-Vd = data[0][:len(algo[0])]	#Esto es para el eje de las x
-for i in range(0,len(algo)):
-		plt.plot(Vd,algo[i],label="Vgs={}".format(Vg[i]))
+Vd = Vds[:len(valores[0])]	#Esto es para el eje de las x
+for i in range(0,len(valores)):
+		plt.plot(Vd,valores[i],label="Vgs={}".format(Vg[i]))
 
 
 ##########
