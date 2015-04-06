@@ -3,24 +3,30 @@
 # La segunda línea (# coding: latin-1) es necesaria para poder usar acentos y ñ.
 from numpy import * 
 import sys
-import matplotlib.pyplot as plt # Primero cargo el resultado de la simulación en un arreglo:
-filename_str = sys.argv[1]
-data = genfromtxt(filename_str, skip_header=0,unpack=True)
+import matplotlib.pyplot as plt 
 
-# Cualquier duda, leer la documentación sobre matplotlib
+# Leer la documentación sobre matplotlib
 # http://matplotlib.sourceforge.net/api/figure_api.html#module-matplotlib.figure 
 # Para ver ejemplos de qué se puede graficar: http://matplotlib.org/gallery.html
 
+
+####
+# Este script debe ser llamado con el archivo que contiene la simulación
+# como argumento.
+###
+filename_str = sys.argv[1]	
+data = genfromtxt(filename_str, skip_header=0,unpack=True)	# Cargo el resultado de la simulación en un arreglo
+
 #######################################
 #
-# Sección de configuración:
+# Sección de configuración
 #
 #######################################
 Vds = data[0]
 Vgs = data[2]
 Id = iter(data[3])	# Aca estan las corrientes de todos los Vg 
 			# uso 'iter' para ir sacando de a uno los valores con Id.next() 
-
+# Fin sección de configuración
 
 
 ###########################
