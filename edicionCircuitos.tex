@@ -470,15 +470,7 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
 }
 \end{exampleblock}
 
-
-Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos una carpeta llamada \verb.sim. y le ponemos el nombre \verb(nmosMin_lay.spi(.
-
-\begin{exampleblock}{Netlist SPICE para simulación}
-\textbf{
-Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
-}
-\end{exampleblock}
-
+Luego especificamos donde guardar el archivo, y damos nombre al archivo. Creamos una carpeta llamada \verb.sim. y le ponemos el nombre \verb(nmosMin_lay.spi(. Luego examinar el archivo y ver el circuito y las resistores y capacitores que aparecen.
 
 \end{frame}
 %------------------------------------------------
@@ -486,18 +478,45 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
 %\subsection{Esquemático y Layout}
 \begin{frame}[fragile]
   \frametitle{Simulación del \emph{Layout}}
-  Creamos una nueva celda de \emph{layout} llamada \verb.nmosMin_tb. donde instanciamos nuestro transistor y escribimos nuestro primer testbench de simulación.
+  Creamos una nueva celda de \emph{layout} llamada \verb.nmosMin_tb. donde instanciamos nuestro transistor.
   \begin{exampleblock}{Instanciar una celda de \emph{layout}}
 \textbf{
 Components $\rightarrow$ Cell $\rightarrow$ nmosMin\{lay\}} (y ubicarla en el plano)
   \end{exampleblock}
 
   Exportamos los tres puertos con los nombre Vg, Vd y vss, y luego creamos el netlist para simulación:
+   \begin{exampleblock}{Creación del netlist para simulación}
+   \textbf{
+Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
+}
+   \end{exampleblock}
 
 \end{frame}
 %------------------------------------------------
-\section{Simulaciones}
-\subsection{Esquemático y Layout}
+\begin{frame}[fragile]
+  \frametitle{Simulación del \emph{Layout} - Creación de un testbench}
+  Creamos el archivo \verb_simulacion.gnucap_ con el siguiente contenido:
+  \begin{tiny}
+  \begin{verbatim}
+**** Comandos para realizar la simulación
+
+* Cargo las fuentes de alimentación y exitación:
+get fuentes.spi
+
+* Cargo el netlist del circuito extraído 
+.include nmosMin_tb.spi
+
+* Opciones para las señales que quiero ver: 
+print dc V(Vd) V(Vg) I(VVDC_vdd)
+
+* Realizo el análisis DC y guardo las señales especificadas con *print* 
+* en un archivo llamado "simulacion.out"
+dc VVDC_vdd 0 3.3 0.05 VVDC_vin 0.00 3.3 0.66 > simulacion.out
+\end{verbatim}
+\end{tiny}
+\href{run:gnucap/simulacion.gnucap}{Descargar el testbench}. Descargar el archivo \href{run:gnucap/fuentes.spi}{fuentes.spi}. 
+\end{frame}
+%----------------------------------------------------
 \begin{frame}
 \frametitle{Simulación del esquemático y del layout extraído}
 \end{frame}
