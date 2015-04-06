@@ -505,11 +505,31 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
   \frametitle{Simulación del \emph{Layout} - Creación de un testbench}
   Creamos el archivo \verb_simulacion.gnucap_ con el siguiente contenido:
   \begin{tiny}
-    \lstinputlisting{gnucap/simulacion.gnucap}
+%    \lstset{breaklines=true,extendedchars=true,mathescape=false} 
+%    \lstinputlisting{gnucap/simulacion.gnucap}
 \end{tiny}
 \href{run:gnucap/simulacion.gnucap}{Descargar el testbench}. Descargar el archivo \href{run:gnucap/fuentes.spi}{fuentes.spi}. 
 \end{frame}
 %----------------------------------------------------
+\begin{frame}{Análisis DC}
+Para cualquier tipo de simulación, debo especificar si quiero ver o guardar algunas señales. Por ejemplo, recién hemos utilizado:
+  \begin{exampleblock}{Selecciono que señales mostrar}
+    print dc V(Vd) V(Vg) I(Vdd)
+  \end{exampleblock}
+
+Para lanzar la simulación haciendo un análisis en DC:
+
+  \begin{exampleblock}{Comando de simulación}
+dc Vdd 0 3.3 0.05 Vin 0.00 3.3 0.66 
+  \end{exampleblock}
+
+  Documentación completa de este análisis y las opciones:
+  \begin{tiny}
+  \url{http://www.gnucap.org/dokuwiki/doku.php?id=gnucap:manual:commands:dc}
+  \end{tiny}
+
+\end{frame}
+%-------------------------------------------------------------------------------
 \begin{frame}[fragile]{Lanzar la simulación}
   Para comenzar la simulación, desde una consola en el directorio \verb.sim. hacemos:
   \begin{verbatim}
@@ -519,11 +539,16 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
   Al finalizar la simulación, \textbf{gnucap} nos devolverá el control y podremos continuar con mas simulaciones, o salir del programa presionando \textbf{Ctrl-d}. 
 \end{frame}
 %----------------------------------------------------
- 
-%----------------------------------------------------
-\begin{frame}
-\frametitle{Simulación del esquemático y del layout extraído}
+\begin{frame}[fragile]{Visualización de la simulación}
+  Para visualizar los datos de la simulación que guardamos en el archivo simulacion.out optamos por utilizar un script en Python:
+  \begin{verbatim}
+  $python/plot_transistor_curves.py sim/simulacion.out
+  \end{verbatim}
+
+  El resultado de esta simulación se puede ver en la filmina siguiente.
+
 \end{frame}
+ 
 %------------------------------------------------
 \subsection{Caracterización de los transistores}
 \begin{frame}
@@ -533,10 +558,26 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
   \end{figure}
 
 \end{frame}
+%----------------------------------------------------
+\begin{frame}
+\frametitle{Simulación del esquemático}
+  La simulación del circuito esquemático se realiza de la misma forma que el \emph{layout}, sólo que se debe crear el netlist Spice desde la vista de esquemático.
+
+\end{frame}
 %------------------------------------------------
-\subsection{Simulaciones de punto de operación}
 \begin{frame}
 \frametitle{Simulaciones de punto de operación}
+Para este comando, también es necesario determinar las señales que queremos ver, lo hacemos con el comando \textbf{print}
+
+
+  \begin{exampleblock}{Comando para agregar valores que se mostrarán}
+    * Tensión en todos los nodos del circuito:
+
+    \textbf{print \alert{op} v(nodes)}
+
+    * Agrega a la lista la corriente que da la fuente:
+
+  \textbf{print \alert{op} +i(Vdd)}  \end{exampleblock}
 \end{frame}
 %------------------------------------------------
 \subsection{Análisis AC}
