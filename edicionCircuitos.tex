@@ -87,7 +87,7 @@
   basicstyle=\small\ttfamily,     % Códigos con fuente TrueType.
   breaklines=true,                % Rompe líneas demasiado largas.
   xrightmargin=1cm,               % Margen derecho.
-  escapeinside=wz,                % Para escapar a LaTeX.
+%  escapeinside=wz,                % Para escapar a LaTeX.
 }%
 
 %----------------------------------------------------------------------------------------
@@ -509,6 +509,17 @@ Tools $\rightarrow$ Simulation (Spice) $\rightarrow$ Write Spice Deck
 \end{tiny}
 \href{run:gnucap/simulacion.gnucap}{Descargar el testbench}. Descargar el archivo \href{run:gnucap/fuentes.spi}{fuentes.spi}. 
 \end{frame}
+%----------------------------------------------------
+\begin{frame}[fragile]{Lanzar la simulación}
+  Para comenzar la simulación, desde una consola en el directorio \verb.sim. hacemos:
+  \begin{verbatim}
+  $gnucap -i simulacion.gnucap
+  \end{verbatim}
+
+  Al finalizar la simulación, \textbf{gnucap} nos devolverá el control y podremos continuar con mas simulaciones, o salir del programa presionando \textbf{Ctrl-d}. 
+\end{frame}
+%----------------------------------------------------
+ 
 %----------------------------------------------------
 \begin{frame}
 \frametitle{Simulación del esquemático y del layout extraído}
