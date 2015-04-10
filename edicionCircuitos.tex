@@ -569,7 +569,6 @@ dc Vdd 0 3.3 0.05 Vin 0.00 3.3 0.66
 \frametitle{Simulaciones de punto de operación}
 Para este comando, también es necesario determinar las señales que queremos ver, lo hacemos con el comando \textbf{print}
 
-
   \begin{exampleblock}{Comando para agregar valores que se mostrarán}
     * Tensión en todos los nodos del circuito:
 
@@ -577,7 +576,61 @@ Para este comando, también es necesario determinar las señales que queremos ve
 
     * Agrega a la lista la corriente que da la fuente:
 
-  \textbf{print \alert{op} +i(Vdd)}  \end{exampleblock}
+  \textbf{print \alert{op} +i(Vdd)}  
+\end{exampleblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+  \frametitle{Más sobre el comando Print}
+%\textbf{Ver elementos internos de los subcircuitos}
+
+Por ejemplo, cuando está instanciado el circuito lm\_2stage\_opamp, con nombre Xlm\_2stag\_0:
+\begin{exampleblock}{Ver si un transistor está saturado}
+
+ * Instanciación del circuito:
+
+ * Xlm\_2stag\_0 ( vss i\_bias vdd out )  lm\_2stage\_opamp 
+
+ * Para acceder a un elemento dentro del circuito, por ejemplo el transistor MM1:
+
+ * MM1.Xlm\_2stag\_0
+
+ * Por ejemplo quiero ver si está saturado ese transistor:
+
+  print op saturated(MM1.Xlm\_2stag\_0)
+\end{exampleblock}
+ Más info sobre como llamar a los elementos internos de los circuitos en:
+  \begin{footnotesize}
+   \url{http://gnucap.org/gnucap-man-html/gnucap-man083.html}
+  \end{footnotesize}
+
+\end{frame}
+%------------------------------------------------------------------------
+\begin{frame}[fragile]
+  \frametitle{Simulaciones de punto de operación}
+
+ Sintáxis:
+ \begin{verbatim}
+ op start stop stepsize {options ...} 
+ \end{verbatim}
+ \begin{exampleblock}{Algunos ejemplos}
+   * Hacer una simulación a 27 grados:
+
+   op 27
+
+   * Hacer un barrido de temperatura desde -40 a 180 en pasos de 10 grados, haciendo una simulación de OP en cada paso:
+
+   op -40 180 10
+ \end{exampleblock}
+ Existen muchas opciones, por ejemplo que el barrido sea logarítmico, inverso, cíclico, etc. Para mas opciones ver:
+  \begin{tiny}
+    \url{http://www.gnucap.org/dokuwiki/doku.php?id=gnucap:manual:commands:op}
+  \end{tiny}
+
+ 
+
+
 \end{frame}
 %------------------------------------------------
 \subsection{Análisis AC}
@@ -595,10 +648,10 @@ Para este comando, también es necesario determinar las señales que queremos ve
 \frametitle{Transformada de Fourier}
 \end{frame}
 %------------------------------------------------
-\subsection{Alternativas de Interacción con circuitos digitales}
-\begin{frame}
-\frametitle{Alternativas de Interacción con circuitos digitales}
-\end{frame}
+%\subsection{Alternativas de Interacción con circuitos digitales}
+%\begin{frame}
+%\frametitle{Alternativas de Interacción con circuitos digitales}
+%\end{frame}
 %------------------------------------------------
 
 \begin{frame}
