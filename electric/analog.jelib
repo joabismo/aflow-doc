@@ -10,7 +10,21 @@ Vschematic|sch
 Oio|GDSMergesBoxes()BT
 
 # Technologies:
-Tmocmos|CapacitanceParasiticForN-ActiveINmocmos()D0.982|CapacitanceParasiticForP-ActiveINmocmos()D1.167|CapacitanceParasiticForPolysilicon-2INmocmos()D0.0|EdgeCapacitanceParasiticForN-ActiveINmocmos()D0.244|EdgeCapacitanceParasiticForP-ActiveINmocmos()D0.203|Ground Net InclusionINmocmos()BT|MaxSeriesResistanceINmocmos()D200.0|MininumCapacitanceINmocmos()D0.05|MininumResistanceINmocmos()D0.5|ResistanceParasiticForActive-CutINmocmos()D12.2|ResistanceParasiticForMetal-1INmocmos()D0.08|ResistanceParasiticForMetal-2INmocmos()D0.08|ResistanceParasiticForMetal-3INmocmos()D0.08|ResistanceParasiticForMetal-4INmocmos()D0.08|ResistanceParasiticForMetal-5INmocmos()D0.07|ResistanceParasiticForMetal-6INmocmos()D0.03|ResistanceParasiticForN-ActiveINmocmos()D6.7|ResistanceParasiticForP-ActiveINmocmos()D7.5|ResistanceParasiticForPoly-CutINmocmos()D10.5|ResistanceParasiticForPolysilicon-1INmocmos()D7.8|ResistanceParasiticForPolysilicon-2INmocmos()D0.0|ResistanceParasiticForVia1INmocmos()D5.69|ResistanceParasiticForVia2INmocmos()D11.39|ResistanceParasiticForVia3INmocmos()D16.73|ResistanceParasiticForVia4INmocmos()D21.44|ResistanceParasiticForVia5INmocmos()D24.08|mocmosNumberOfMetalLayers()I4
+Tmocmos|CapacitanceParasiticForN-ActiveINmocmos()D0.982|CapacitanceParasiticForP-ActiveINmocmos()D1.167|CapacitanceParasiticForPolysilicon-2INmocmos()D0.0|EdgeCapacitanceParasiticForN-ActiveINmocmos()D0.244|EdgeCapacitanceParasiticForP-ActiveINmocmos()D0.203|Gate InclusionINmocmos()BT|Ground Net InclusionINmocmos()BT|MaxSeriesResistanceINmocmos()D200.0|MininumCapacitanceINmocmos()D0.05|MininumResistanceINmocmos()D0.5|ResistanceParasiticForActive-CutINmocmos()D12.2|ResistanceParasiticForMetal-1INmocmos()D0.08|ResistanceParasiticForMetal-2INmocmos()D0.08|ResistanceParasiticForMetal-3INmocmos()D0.08|ResistanceParasiticForMetal-4INmocmos()D0.08|ResistanceParasiticForMetal-5INmocmos()D0.07|ResistanceParasiticForMetal-6INmocmos()D0.03|ResistanceParasiticForN-ActiveINmocmos()D6.7|ResistanceParasiticForP-ActiveINmocmos()D7.5|ResistanceParasiticForPoly-CutINmocmos()D10.5|ResistanceParasiticForPolysilicon-1INmocmos()D7.8|ResistanceParasiticForPolysilicon-2INmocmos()D0.0|ResistanceParasiticForVia1INmocmos()D5.69|ResistanceParasiticForVia2INmocmos()D11.39|ResistanceParasiticForVia3INmocmos()D16.73|ResistanceParasiticForVia4INmocmos()D21.44|ResistanceParasiticForVia5INmocmos()D24.08|mocmosNumberOfMetalLayers()I4
+
+# Cell amp;1{lay}
+Camp;1{lay}||mocmos|1428767507776|1428776682294||DRC_last_good_drc_area_date()G1428767618654|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1428767618654
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Polysilicon-1-Con|contact@3||-83|2.5||||
+InmosMin;1{lay}|nmosMin@0||-3.5|3|||D5G4;
+NMetal-1-Polysilicon-1-Con|out|D5G1;|-21|3||||
+NPolysilicon-1-Pin|pin@0||-31|3||||
+NPolysilicon-1-Pin|pin@1||-83|3||||
+APolysilicon-1|net@2|||S1800|pin@0||-31|3|out||-21|3
+APolysilicon-1|net@3||3|S2700|contact@3||-83|2.5|pin@1||-83|3
+APolysilicon-1|net@4|||S0|pin@0||-31|3|pin@1||-83|3
+Ealim||D5G2;|contact@3||U
+X
 
 # Cell inv;1{ic}
 Cinv;1{ic}||artwork|1428756183574|1428758010433|E
@@ -123,7 +137,7 @@ EVg||D5G2;|pin@2||I
 X
 
 # Cell nmosMin;1{lay}
-CnmosMin;1{lay}||mocmos|1426514343175|1427986934107||DRC_last_good_drc_area_date()G1427986936377|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1427986936377
+CnmosMin;1{lay}||mocmos|1426514343175|1428776842361||DRC_last_good_drc_area_date()G1428776750129|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1428776750129
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@6||-4.5|0||||
 NMetal-1-N-Active-Con|contact@7||4.5|0||||
@@ -167,10 +181,7 @@ EVg||D5G2;|conn@1|a|I
 X
 
 # Cell nmosMin_tb;1{lay}
-CnmosMin_tb;1{lay}||mocmos|1428174653892|1428178176938|
+CnmosMin_tb;1{lay}||mocmos|1428174653892|1428776682294|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 InmosMin;1{lay}|nmosMin@0||0|0|||D5G4;
-EVd||D5G2;|nmosMin@0|Vd|I
-EVg||D5G2;|nmosMin@0|Vg|I
-Evss||D5G2;|nmosMin@0|AVSS|G
 X

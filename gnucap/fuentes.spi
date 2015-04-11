@@ -1,4 +1,4 @@
 *** Fuentes de alimentación 
 Vss vss 0 DC '0V' AC '0V' 0
-Vdd Vd vss DC '3.3V' AC '0V' 0 tran 3.3
+Vdd Vd vss DC '3.3V' AC '3.3V' 0 tran 3.3
 Vin Vg vss DC '3.3V' AC '0V' 0 tran 3.3

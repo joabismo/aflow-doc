@@ -421,7 +421,7 @@ Creamos los puertos con los mismos nombres que en el esquemático, seleccionamos
 %------------------------------------------------
 \begin{frame}
 \frametitle{Creación del layout - Puertos}
-De la misma forma creamos el puerto para \textbf{Vd} y \textbf{AVSS}:
+De la misma forma creamos el puerto para \textbf{Vd}, \textbf{Vg} y \textbf{AVSS}:
 \begin{figure}
   \includegraphics[width=0.51\linewidth]{figuras/edicionElectric-11a.png}
 \end{figure}
@@ -634,18 +634,26 @@ Por ejemplo, cuando está instanciado el circuito lm\_2stage\_opamp, con nombre 
 \end{frame}
 %------------------------------------------------
 \subsection{Régimen transitorio}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Régimen transitorio}
-
 
 Simulación de un inversor:
 Hacemos la extracción del layout de nuestro circuito \textbf{inv} y luego creamos el testbench para gnucap:
 
-\href{run:gnucap/inv.gnucap}{Abrir el testbench}.
+\href{run:gnucap/inv.gnucap}{Ver el testbench}.
 
-\href{run:gnucap/exitacion_fuentes.spi}{Ver el archivo de exitación}.
+\href{run:gnucap/exitacion_inv.spi}{Ver el archivo de exitación}.
 
 \href{run:gnucap/fuentes_general.spi}{Ver el archivo con la alimentación general}
+
+
+Para lanzar la simulación, hacemos:
+\begin{footnotesize}
+\begin{verbatim}
+$gnucap -i inv.gnucap # Desde el directorio 
+                      # donde estan todos los archivos
+\end{verbatim}
+\end{footnotesize}
 
 
 \end{frame}
@@ -660,13 +668,43 @@ Hacemos la extracción del layout de nuestro circuito \textbf{inv} y luego cream
 \subsection{Análisis AC}
 \begin{frame}
 \frametitle{Análisis AC}
+Este es un análisis de pequeña señal, que nos permite hacer un barrido en frecuencia. Es obligatorio antes de realizar este análisis, hacer una simulación de punto de operación.
+
+\begin{exampleblock}{Sintáxis}
+  ac {options ...} start stop stepsize {options ...} 
+\end{exampleblock}
+
+
+Documentación:
+  \begin{tiny}
+    \url{http://www.gnucap.org/dokuwiki/doku.php?id=gnucap:manual:commands:ac}
+  \end{tiny}
+
+
 \end{frame}
 %------------------------------------------------
 \subsection{Transformada de Fourier}
 \begin{frame}
 \frametitle{Transformada de Fourier}
+Realiza un análisis transitorio, pero muestra los resultados en el dominio de la frecuencia.
+\begin{exampleblock}{Sintáxis}
+  fourier start stop stepsize {options ...} 
+\end{exampleblock}
+
+
+Documentación:
+  \begin{tiny}
+    \url{http://www.gnucap.org/dokuwiki/doku.php?id=gnucap:manual:commands:fourier}
+  \end{tiny}
+
 \end{frame}
 %------------------------------------------------
+\begin{frame}{Instalar paquetes extras}
+  Desde una consola:
+  \begin{exampleblock}{Instalar mas herramientas}
+    sudo apt-get install perl python git easygit
+  \end{exampleblock}
+  \end{frame}
 %\subsection{Alternativas de Interacción con circuitos digitales}
 %\begin{frame}
 %\frametitle{Alternativas de Interacción con circuitos digitales}
