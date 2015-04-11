@@ -7,8 +7,6 @@ options reltol= 0.00001
 options abstol= 0.01p
 
 
-
-
 * Cargo el circuito
 get inv_lay.spi
 
