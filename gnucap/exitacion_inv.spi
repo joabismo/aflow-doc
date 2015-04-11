@@ -1,0 +1,1 @@
+vext in vss dc 0 pulse 0 3.3 0 {periodo/100} {periodo/100} {periodo/2} periodo

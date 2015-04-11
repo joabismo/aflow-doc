@@ -1,0 +1,31 @@
+*** Simulación del inversor
+options dtmin=1e-15
+
+* Para que converga la corriente con mejor resolución: 
+* Se podría hacer más preciso aún, pero las simulaciones tardarían mas.
+options reltol= 0.00001
+options abstol= 0.01p
+
+
+
+
+* Cargo el circuito
+get inv_lay.spi
+
+* Cargo la exitación de entrada
+.include fuentes_general.spi
+* Cargo la exitación de entrada
+.include exitacion_inv.spi
+* Seteo el parámetro para fijar la frecuencia en el circuito de exitación:
+param periodo = 1n
+
+* Comienzo la simulación llevando el circuito al punto de operación por defecto (Temperatura 27 grados)
+op
+
+* Elijo en qué puntos voy a medir:
+probe tran v(in) v(out)
+
+* Comienzo la simulación en el tiempo:
+trans 0 3n 1p > inv.out
+
+

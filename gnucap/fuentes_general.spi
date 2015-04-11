@@ -1,0 +1,3 @@
+*** Fuentes de alimentación general
+VSS vss 0 DC '0V' AC '0V' 0
+VDD VDD VSS DC '3.3V' AC '0V' 0 tran 3.3
