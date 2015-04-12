@@ -110,6 +110,9 @@ breaklines=false,                        % Automatic line breaking?
 breakatwhitespace=false,                % Automatic breaks only at whitespace?
 showspaces=false,                       % Dont make spaces visible
 showtabs=false,                         % Dont make tabls visible
+showstringspaces=false,
+commentstyle=\color{red},
+keywordstyle=\color{blue},
 }
 
 
@@ -148,20 +151,22 @@ Un programa es software libre si los usuarios tienen las cuatro libertades esenc
 %------------------------------------------------
 
 \begin{frame}[fragile]
-\subsection{OpenJDK Java 6 } % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{Instalacíon de paquetes necesarios } % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
-\frametitle{Instalación del JDK de Java}
+\frametitle{Instalación del JDK de Java, gnucap y otras herramientas}
 
 \noindent Desde una consola:
 \begin{lstlisting}[language=bash]
- $ su # Acceder a privilegios de root
- $ apt-get install openjdk-6-jdk
+ # Acceder a privilegios de root
+ su
+ apt-get install openjdk-6-jdk gnucap \
+ perl python-matplotlib
+ # Abandonar los privilegios de root
+ exit
 \end{lstlisting}
-
-
 \end{frame}
+%----------------------------------------------------
 
-%------------------------------------------------
 \subsection{Electric}
 \begin{frame}[fragile]
 \frametitle{Descargar Electric 9.05}
@@ -169,9 +174,9 @@ Un programa es software libre si los usuarios tienen las cuatro libertades esenc
 \noindent Desde la consola:
 \begin{scriptsize}
 \begin{lstlisting}[language=bash]
- $ mkdir -p ~/sti/bin # Creo un directorio en mi home
- $ cd ~/sti/bin	      # Cambio al directorio creado
- $ wget ftp://ftp.gnu.org/pub/gnu/electric/electric-9.05.jar
+  mkdir -p ~/aflow/bin # Creo un directorio en mi home
+  cd ~/aflow/bin	      # Cambio al directorio creado
+  wget ftp://ftp.gnu.org/pub/gnu/electric/electric-9.05.jar
 \end{lstlisting}
 \end{scriptsize}
 
@@ -186,7 +191,7 @@ y descargar cualquiera de las dos opciones disponibles (binario y código fuente
 Descargar también algunos plug-ins:
 \begin{scriptsize}
 \begin{lstlisting}[language=bash]
- $ wget http://www.staticfreesoft.com/electricSFS-9.05.jar
+  wget http://www.staticfreesoft.com/electricSFS-9.05.jar
 \end{lstlisting}
 \end{scriptsize}
 \end{frame}
@@ -195,31 +200,17 @@ Descargar también algunos plug-ins:
 %------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Crear acceso directo a Electric}
-
-\noindent Abrimos un editor de texto:
-\begin{footnotesize}
+Desde una consola hacer:
+\begin{tiny}
 \begin{lstlisting}[language=bash]
- $ gedit ~/.bashrc
+ echo "alias electric='java -classpath ~/aflow/bin/electric-9.05.jar:\
+ ~/aflow/bin/electricSFS-9.05.jar com.sun.electric.Launcher &'" >> ~/.bashrc
 \end{lstlisting}
-Al final del archivo agregamos la siguiente línea:
-\begin{verbatim}
-alias electric='java -classpath ~/sti/bin/electric-9.05.jar:\
-~/sti/bin/electricSFS-9.05.jar com.sun.electric.Launcher &'
-\end{verbatim}
-\end{footnotesize}
+
+\end{tiny}
 
 \end{frame}
 
-%------------------------------------------------
-\begin{frame}[fragile]
-\subsection{gnucap}
-\frametitle{Instalación del simulador gnucap}
-
-\noindent Desde la consola:
-\begin{lstlisting}[language=bash]
- $ apt-get install gnucap
-\end{lstlisting}
-\end{frame}
 %------------------------------------------------
 \begin{frame}[fragile]
 \section{Configuración}
