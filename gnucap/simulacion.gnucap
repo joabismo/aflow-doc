@@ -7,8 +7,13 @@ get fuentes.spi
 .include nmosMin_tb.spi
 
 * Opciones para las señales que quiero ver: 
-print dc V(Vd) V(Vg) I(Vdd)
+probe dc V(Vd) V(Vg) I(Vdd)
+* Ejemplo para mostrar el estado de un transistor
+probe dc +saturated(MM1.XnmosMin_1)
 
 * Realizo el análisis DC y guardo las señales especificadas con *print* 
 * en un archivo llamado "simulacion.out"
 dc Vdd 0 3.3 0.05 Vin 0.00 3.3 0.66 > simulacion.out
+
+!../python/plot_transistor_curves.py simulacion.out
+
